@@ -1,11 +1,4 @@
 
-var margin = {"top": 0, "bottom": 0};
-
-    var aspect_width = 16,
-        aspect_height = 9;
-
-    var pixelRatio = window.devicePixelRatio || 1;
-
 //jquery shorthand
 var $graphic = $('#graphic');
 //base colors
@@ -29,13 +22,12 @@ function draw_graphic(){
     if (Modernizr.canvas){
         $graphic.empty();
         var width = $graphic.parent().width();
-        console.log("parent width = " + width);
-        render(width);
+        render();
         window.onresize = draw_graphic; //very important! the key to responsiveness
     }
 }
 
-function render(width) {
+function render() {
 
     //grab context from canvas
     var ctx = $graphic.get(0).getContext("2d");
